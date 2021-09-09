@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+
+{% block title %}Storytel Coding Challenge | Message{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h2>Please, type the message UID below: </h2>
+                
+                {% if error %}
+                <p class="text-danger">Error: {{ error }}</p>
+                {% endif %}
+                
+                <form action = "{{ url_for('message') }}" method="post">
+                    <div class="form-group">
+                        <label for="id">Enter the message uid:</label>
+                        <input type="text" id="id" class="form-control" name="id" placeholder="Message UID here" required>   
+                    </div>
+                    <input class="btn btn-default" type="submit" value="Search">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
